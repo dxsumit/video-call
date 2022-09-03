@@ -1,0 +1,10 @@
+/* this is inside the video-grid */
+video {
+    height: 350px;
+    width: 400px;
+    object-fit: cover;
+}
+#video-grid {
+   display: flex; 
+   justify-content: center;
+}

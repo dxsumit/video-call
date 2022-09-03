@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="/socket.io/socket.io.js" ></script>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+
+</head>
+<body>
+
+    <div class="main">
+        <div class="left">
+            <div id="video-grid">  </div>
+
+            <div class="functionalities">
+                <div class="functionalities_block">
+                    
+                    <div onclick="mute_unmute()" class="functionality_button mute_btn">
+                        <span> Mute </span>
+                    </div>
+
+                    <div onclick="pause_play_video()" class="functionality_button stop_video">
+                        <span> Stop Video </span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="righ">
+            <div class="main_header">
+                <h5>Chats</h5>
+            </div>
+
+            <div class="chat_window">
+
+            </div>
+
+            <div class="message_container">
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        const ROOM_ID = "<% roomID %>";    
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
