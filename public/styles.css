@@ -27,7 +27,7 @@ video {
     flex: 0.2
 }
 
-.videos {
+.background {
     flex-grow: 1;
     background-color: #AA98A9;
     display: flex;
