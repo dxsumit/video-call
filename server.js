@@ -24,20 +24,6 @@ const link = Math.random().toString(36).slice(2,12)
 const port = 3000
 
 
-app.get('/', (req, res) => {
-
-    // res.render('homePage');
-
-    // home will redirect to new link
-    res.redirect(`/${link}`);
-})
-
-app.get('/:chatRoom', (req, res) => {
-
-    // passing with the params
-    res.render('chatRoom', {roomID: req.params.chatRoom});
-})
-
 // initialising socket connection
 io.on('connection', socket => {
     socket.on('sumit-ka-room', (roomID, userID) =>{
@@ -52,10 +38,56 @@ io.on('connection', socket => {
         socket.on('disconnect', () => {
             socket.to(roomID).emit('user-disconnected', userID);
         })
+
+        socket.on('unsubscribe', (room) =>{
+            console.log('[socket]','leave room :', room);
+            socket.leave(room);
+            // it will broadcast the room with name 
+            // socket.broadcast.to(roomID).emit('connect-karo', userID);
+            socket.to(room).emit('user left', socket.id);
+        })
+
     })
     
 })
 
+
+// io.on('connection', socket => {
+//     socket.on('unsubscribe', (room) =>{
+//         console.log('[socket]','leave room :', room);
+//         socket.leave(room);
+//         // it will broadcast the room with name 
+//         // socket.broadcast.to(roomID).emit('connect-karo', userID);
+//         socket.to(room).emit('user left', socket.id);
+//         })
+//     })
+
+
+
+
+app.get('/', (req, res) => {
+
+    res.render('homePage');
+
+    // home will redirect to new link
+    // res.redirect(`/${link}`);
+})
+
+
+app.get('/:chatRoom', (req, res) => {
+
+    // passing with the params
+    // console.log('here => ', req.params.chatRoom)
+    res.render('chatRoom', {roomID: req.params.chatRoom});
+})
+
+
+// app.post('/:chatRoom', (req, res) => {
+//     const ID= req.body.name;
+
+//     res.render('chatRoom', {roomID: ID});
+//     // ...do your bidding with this data
+// });
 
 
 server.listen(port)
