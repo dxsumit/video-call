@@ -5,30 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Call</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js" ></script>
     <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
 
 </head>
 <body>
 
     <div class="main">
         <div class="left">
-            <div id="video-grid">  </div>
-
+            <div class="videos">
+                <div id="video-grid">  </div>
+            </div>
             <div class="functionalities">
+
+                <div class="functionalities_block">
+
+                    <div class="functionality_button">
+                       <i class="fas fa-shield-alt"></i>
+                       <span>Security</span>
+                    </div>
+                    <div class="functionality_button">
+                         <i class="fas fa-comment-alt"></i>
+                         <span>Chat</span>
+                      </div>
+                    <div class="functionality_button">
+                       <i class="fas fa-user-friends"></i>
+                       <span>Participants</span>
+                    </div>
+                 </div>
+
                 <div class="functionalities_block">
                     
                     <div onclick="mute_unmute()" class="functionality_button mute_btn">
+                        <i class="fas fa-microphone"></i>
                         <span> Mute </span>
                     </div>
 
                     <div onclick="pause_play_video()" class="functionality_button stop_video">
+                        <i class="fas fa-video"></i>
                         <span> Stop Video </span>
                     </div>
 
-                    <div onclick="leave_call()" class="functionality_button">
-                        <span> Leave Call </span>
+                </div>
+
+                <div class="functionalities_block">
+                    
+                    <div class="functionality_button">
+                        <i class="fas fa-phone-slash"></i>
+                        <span class="leave_meeting">Leave Meeting</span>
                     </div>
 
                 </div>
@@ -36,20 +65,21 @@
             </div>
         </div>
 
-        <div class="righ">
-            <div class="main_header">
-                <h5>Chats</h5>
+        <div class="right">
+            <div class="header">
+               <h6>Chat</h6>
             </div>
-
             <div class="chat_window">
-
+               <ul class="messages">
+                  
+               </ul>
+   
             </div>
-
             <div class="message_container">
-
+               <input id="chat_message" type="text" placeholder="Type message here...">
             </div>
-
-        </div>
+         </div>
+      </div>
     </div>
 
 
