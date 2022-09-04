@@ -105,27 +105,27 @@ const mute_unmute = () => {
     const enabled = stream.getAudioTracks()[0].enabled;
     if(enabled){
         stream.getAudioTracks()[0].enabled = false;
-        // setUnmuteBtn();
+        setUnmuteBtn();
         console.log('muted');
     
     } else {
         stream.getAudioTracks()[0].enabled = true;
-        // setMuteBtn();
+        setMuteBtn();
         console.log('unmuted');
     }
 
-}   
+}
 
 const setUnmuteBtn = () => {
-    const new_html = `<i> </i> 
-                <span> mute </span>`
+    const new_html = `<i class="unmute fas fa-microphone-slash"></i>
+    <span>Unmute</span>`
         
     document.querySelector('.mute_btn').innerHTML = new_html;
 }
 
 const setMuteBtn = () => {
-    const new_html = `<i> </i> 
-                <span> mute </span>`
+    const new_html = `<i class="fas fa-microphone"></i>
+    <span>Mute</span>`
         
     document.querySelector('.mute_btn').innerHTML = new_html;
 }
@@ -136,27 +136,27 @@ const pause_play_video = () => {
     const enabled = stream.getVideoTracks()[0].enabled;
     if(enabled){
         stream.getVideoTracks()[0].enabled = false;
-        // pauseVideo();
+        playVideo();
         console.log("video stoped")
     
     }else {
         stream.getVideoTracks()[0].enabled = true;
-        // playVideo()
+        pauseVideo()
         console.log("video starts")
     }
 }
 
 const pauseVideo = () => {
-    const new_html = `<i> </i>
-                    <span> </span>`
+    const new_html = `<i class="fas fa-video"></i>
+    <span>Stop Video</span>`
 
     document.querySelector('.stop_video').innerHTML = new_html;
 }
 
 
 const playVideo = () => {
-    const new_html = `<i> </i>
-                    <span> </span>`
+    const new_html = `<i class="stop fas fa-video-slash"></i>
+    <span>Play Video</span>`
 
     document.querySelector('.stop_video').innerHTML = new_html;
 }
