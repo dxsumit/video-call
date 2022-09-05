@@ -166,6 +166,8 @@ const leave_call = () => {
 const handleStartCall = async () => {
 
     const link = Math.random().toString(36).slice(2,12)
-    window.location.href = `http://localhost:3000/${link}`;
+    // https://desolate-forest-51690.herokuapp.com/
+    window.location.href = `https://desolate-forest-51690.herokuapp.com/${link}`;
+    
 }
 
