@@ -18,4 +18,11 @@ Try <a href='https://desolate-forest-51690.herokuapp.com/'> desolate-forest </a>
 
 ### Working Screen Shots
 
-
+<center> 
+  <div>
+    <img src="https://user-images.githubusercontent.com/58907200/188474560-1119f70d-278a-4b97-8778-72568aa68a33.png" width=33% height=45%>
+    <img src="https://user-images.githubusercontent.com/58907200/188474549-00837cd3-0fbb-47ca-879c-0dc29497e4a0.png" width=33% height=45%>
+    <img src="https://user-images.githubusercontent.com/58907200/188474576-8cc2867a-72ef-42b4-a2b4-3879a603f0c4.png" width=33% height=45%>
+    
+  </div>
+</center>
