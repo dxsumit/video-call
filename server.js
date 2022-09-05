@@ -64,5 +64,5 @@ app.get('/:chatRoom', (req, res) => {
     res.render('chatRoom', {roomID: req.params.chatRoom});
 })
 
-server.listen(port)
+server.listen(process.env.PORT||port);
 
