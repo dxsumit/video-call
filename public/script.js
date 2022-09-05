@@ -1,8 +1,5 @@
-// const axios = require('axios');
-// const axios = require('axios').default;
 const socket = io('/');
 const myVideo = document.createElement('video')
-// myVideo.muted = true;
 
 
 // staring new peer
@@ -32,7 +29,6 @@ const handleStream = (video, stream) => {
 let stream;
 const startStream = async () => {
 
-    console.log("in the start Stream");
     stream = await navigator.mediaDevices.getUserMedia({
         video: true,
         audio: true
@@ -80,7 +76,6 @@ peer.on('open', (ID) => {
 
 
 const newUserConnect = (userID, stream) => {
-    console.log("Connect ho chuka hu", userID);
 
     // sending the newuser our stream, calling them
     const call = peer.call(userID, stream)
@@ -106,12 +101,11 @@ const mute_unmute = () => {
     if(enabled){
         stream.getAudioTracks()[0].enabled = false;
         setUnmuteBtn();
-        console.log('muted');
     
     } else {
         stream.getAudioTracks()[0].enabled = true;
         setMuteBtn();
-        console.log('unmuted');
+    
     }
 
 }
@@ -137,12 +131,10 @@ const pause_play_video = () => {
     if(enabled){
         stream.getVideoTracks()[0].enabled = false;
         playVideo();
-        console.log("video stoped")
     
     }else {
         stream.getVideoTracks()[0].enabled = true;
         pauseVideo()
-        console.log("video starts")
     }
 }
 
@@ -163,7 +155,6 @@ const playVideo = () => {
 
 
 const leave_call = () => {
-    console.log("hello leave the call");
     
     socket.on('user left', (userID) => {
         console.log('done');

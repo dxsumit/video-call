@@ -27,12 +27,10 @@ const port = 3000
 // initialising socket connection
 io.on('connection', socket => {
     socket.on('sumit-ka-room', (roomID, userID) =>{
-        console.log('In the sumit ka room');
         socket.join(roomID);
         // it will broadcast the room with name 
         // socket.broadcast.to(roomID).emit('connect-karo', userID);
         socket.to(roomID).emit('connect-karo', userID);
-
 
 
         socket.on('disconnect', () => {
@@ -40,29 +38,14 @@ io.on('connection', socket => {
         })
 
         socket.on('unsubscribe', (room) =>{
-            console.log('[socket]','leave room :', room);
+            //console.log('[socket]','leave room :', room);
             socket.leave(room);
             // it will broadcast the room with name 
             // socket.broadcast.to(roomID).emit('connect-karo', userID);
             socket.to(room).emit('user left', socket.id);
         })
-
     })
-    
 })
-
-
-// io.on('connection', socket => {
-//     socket.on('unsubscribe', (room) =>{
-//         console.log('[socket]','leave room :', room);
-//         socket.leave(room);
-//         // it will broadcast the room with name 
-//         // socket.broadcast.to(roomID).emit('connect-karo', userID);
-//         socket.to(room).emit('user left', socket.id);
-//         })
-//     })
-
-
 
 
 app.get('/', (req, res) => {
@@ -81,16 +64,5 @@ app.get('/:chatRoom', (req, res) => {
     res.render('chatRoom', {roomID: req.params.chatRoom});
 })
 
-
-// app.post('/:chatRoom', (req, res) => {
-//     const ID= req.body.name;
-
-//     res.render('chatRoom', {roomID: ID});
-//     // ...do your bidding with this data
-// });
-
-
 server.listen(port)
-
-
 
